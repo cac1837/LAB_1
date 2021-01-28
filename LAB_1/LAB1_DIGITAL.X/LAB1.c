@@ -56,20 +56,20 @@ void main(void){
     while(1)
     {  
         if ((PORTBbits.RB0 == 1) && (!flag))
-        {                                       // se comprueba si el RB0 esta presionado 
+        {                                           // se comprueba si el RB0 esta presionado 
             semaforo();  
-        }                                       // y si Flag esta desactivada y llama al semaforo   
+        }                                           // y si Flag esta desactivada y llama al semaforo   
         if ((PORTBbits.RB1 == 1) && (flag))
-        {                                       // se presiona el RB1 y activamos Flags
+        {                                           // se presiona el RB1 y activamos Flags
             cont1();                                // llama a la funcion del jugador 1
             __delay_ms(100);
         }
         if ((PORTBbits.RB2 == 1) && (flag))
-        {                                       // realiza lo mismo pero en juagdor 2
+        {                                           // realiza lo mismo pero en juagdor 2
             cont2();
-            __delay_ms(100);                     //y ponemos un delay para evitar rebote
+            __delay_ms(100);                        //y ponemos un delay para evitar rebote
         }
-         if (PORTBbits.RB3 == 1){           //Se presiona RB3 y reinicia el programa 
+         if (PORTBbits.RB3 == 1){                   //Se presiona RB3 y reinicia el programa 
             PORTD = 0;
             PORTB = 0;
             PORTC = 0;
@@ -83,19 +83,19 @@ void main(void){
 
 
 void setup(void){
-    ANSEL = 0;        // Establecemos los puertos
+    ANSEL = 0;          // Establecemos los puertos
     ANSELH = 0;
     
-    TRISE = 0;      //Establecemos el puerto E como salida y se limpia
-    PORTE = 0;      //SEMAFORO
+    TRISE = 0;          //Establecemos el puerto E como salida y se limpia
+    PORTE = 0;          //SEMAFORO
     
     TRISC = 0;
-    PORTC = 0;      //JUGADOR 1
+    PORTC = 0;          //JUGADOR 1
     
     TRISD= 0;
-    PORTD = 0;      //JUGAROR 2
+    PORTD = 0;          //JUGAROR 2
     
-    TRISB = 0B00001111;     
+    TRISB = 0B00001111;     // Solo se encendieron los tres primeron puertos 
     PORTB = 0;              // BOTONES DE JUGADOR Y RST
     
   
